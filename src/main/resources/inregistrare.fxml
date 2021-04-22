@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" style="-fx-background-color: PINK" hgap="10" prefHeight="400" prefWidth="600"
+          vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="org.CatalogVirtual.Controllers.Inregistrare">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+    </padding>
+    <Text id="title-text" text="Catalog Virtual - Creare Cont " GridPane.columnIndex="0" textAlignment="CENTER" GridPane.columnSpan="2"
+          GridPane.rowIndex="0"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Text>
+    <Label text="Nume:" GridPane.columnIndex="0" GridPane.rowIndex="1"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+
+    <TextField fx:id="Nume" GridPane.columnIndex="1" GridPane.rowIndex="1"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+    <Label text="Prenume:" GridPane.columnIndex="0" GridPane.rowIndex="2"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+    <TextField fx:id="Prenume" GridPane.columnIndex="1" GridPane.rowIndex="2"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+
+    <Label text="NumeUtilizator:" GridPane.columnIndex="0" GridPane.rowIndex="3"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+    <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="3"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+
+    <Label text="Parola:" GridPane.columnIndex="2" GridPane.rowIndex="3"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+    <PasswordField fx:id="passwordField" GridPane.columnIndex="4" GridPane.rowIndex="3"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></PasswordField>
+
+
+    <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="4"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+    <ChoiceBox fx:id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+    </ChoiceBox>
+    <Label text="NumarTelefon:" GridPane.columnIndex="0" GridPane.rowIndex="5"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+    <TextField fx:id="nrTel" GridPane.columnIndex="1" GridPane.rowIndex="5"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+
+    <Label text="AdresaEmail:" GridPane.columnIndex="0" GridPane.rowIndex="6"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+    <TextField fx:id="adresaEmail" GridPane.columnIndex="1" GridPane.rowIndex="6"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+
+    <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Text>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
+        <Button  onAction="#handleRegisterAction" text="Inregistrare"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="8">
+        <Button fx:id="button" onAction="#Backaction" text="Inapoi"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+</GridPane>
