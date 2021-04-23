@@ -1,5 +1,6 @@
 package org.CatalogVirtual.services;
 
+import org.CatalogVirtual.Exceptions.ContulNuExista;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.CatalogVirtual.Exceptions.ContulDejaExista;
@@ -35,6 +36,16 @@ public class UserService {
                 throw new ContulDejaExista(username);
         }
     }
+    public static void checkUserDoesAlreadyExist(String username) throws ContulNuExista {
+        int exista=0;
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername()))
+                exista=1;
+        }
+        if (exista==0)
+            throw new ContulNuExista(username);
+    }
+
 
     private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();

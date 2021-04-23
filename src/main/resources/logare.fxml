@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" style="-fx-background-color: PINK" hgap="10" prefHeight="400" prefWidth="600"
+          vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="org.CatalogVirtual.Controllers.Logare">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+    </padding>
+    <Text id="title-text" text="Catalog Virtual - Logare" GridPane.columnIndex="0" textAlignment="CENTER" GridPane.columnSpan="2"
+          GridPane.rowIndex="0"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Text>
+
+
+    <Label text="NumeUtilizator:" GridPane.columnIndex="0" GridPane.rowIndex="1"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+    <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+
+    <Label text="Parola:" GridPane.columnIndex="0" GridPane.rowIndex="2"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></PasswordField>
+    <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="3"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Text>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
+        <Button fx:id="buttonCreare" onAction="#handleInregistrareAction" text="Inregistrare"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button fx:id="buttonLogare" onAction="#handleLogareAction" text="Logare"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+</GridPane>
