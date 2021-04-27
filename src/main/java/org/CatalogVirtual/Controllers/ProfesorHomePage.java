@@ -24,18 +24,13 @@ public class ProfesorHomePage {
     private Button butonDeconectare;
         @FXML
     private User user;
-        @FXML
-        private Text text;
 
 
     private  String userName;
     public  void setUser(User user){
         this.user=user;
     }
-    public void setDetalii(String detalii)
-    {
-        text.setText(detalii);
-    }
+
     public void handleAdaugareNote() throws IOException {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("adaugarenote.fxml"));
