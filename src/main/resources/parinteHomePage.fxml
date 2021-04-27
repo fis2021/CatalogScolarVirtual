@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane hgap="2" prefHeight="400" prefWidth="600" style="-fx-background-color: PINK" vgap="3" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CatalogVirtual.Controllers.ParinteHomePage">
+    <TilePane alignment="CENTER" prefHeight="16.0" prefWidth="600" style="-fx-background-color: PINK" GridPane.rowIndex="0">
+        <Text fx:id="text" textAlignment="CENTER"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Text>
+    </TilePane>
+    <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="10">
+        <Button fx:id="butonAnunturi" prefHeight="10" prefWidth="400" onAction="#handleAnunturi"  text="Vizualizare anunturi" ><font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+        </Button>
+    </HBox>
+    <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="20">
+        <Button fx:id="butonProfesori" onAction="#handleProfesori" text="Date de contact ale profesorilor"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+    <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="30">
+        <Button fx:id="butonVizualizareNote" onAction="#handleVizualizareNote" text="Vizualizare situatie scolara"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+    <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="40">
+        <Button fx:id="butonDeconectare" onAction="#handleDeconectare" text="Deconectare"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+
+
+
+
+</GridPane>

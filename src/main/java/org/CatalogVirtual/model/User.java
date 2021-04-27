@@ -99,4 +99,10 @@ public class User {
         result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
     }
+    @Override
+    public String toString(){
+        String t;
+        t=Nume+" "+Prenume+"\n"+nrTel+"\n"+adresaEmail;
+        return t;
+    }
 }
