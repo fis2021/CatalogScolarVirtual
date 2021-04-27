@@ -23,8 +23,6 @@ public class ParinteHomePage {
     private Button butonDeconectare;
     @FXML
     private User user;
-    @FXML
-    private Text text;
     public void setUser(User user)
     {
         this.user=user;
@@ -65,9 +63,7 @@ public class ParinteHomePage {
             System.out.println("eroare");
         }
     }
-    public void setDetalii(String text){
-        this.text.setText(text);
-    }
+
     public void handleDeconectare() throws IOException {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("logare.fxml"));

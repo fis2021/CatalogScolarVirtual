@@ -20,16 +20,13 @@ public class ElevHomePage {
     private Button butonDeconectare;
     @FXML
     private User user;
-    @FXML
-    private Text text;
+
     public void setUser(User user)
     {
         this.user=user;
     }
 
-    public void setDetalii(String text){
-        this.text.setText(text);
-    }
+
     public void handleProfesori() throws IOException {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("listaprofesori.fxml"));

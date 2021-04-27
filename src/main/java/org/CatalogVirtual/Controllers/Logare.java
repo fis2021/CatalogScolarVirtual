@@ -42,7 +42,6 @@ public class Logare {
                 stage.setScene(new Scene(root));
                 ProfesorHomePage profesor = loader.getController();
                 profesor.setUser(user);
-                profesor.setDetalii(detalii);
                 stage.show();}
             else
                 if(user.getRole().equals("Elev")){
@@ -52,7 +51,7 @@ public class Logare {
                     stage.setScene(new Scene(root));
                     ElevHomePage elev = loader1.getController();
                     elev.setUser(user);
-                    elev.setDetalii(detalii);
+
                     stage.show();
                 }
                 else if(user.getRole().equals("Parinte"))
@@ -63,7 +62,6 @@ public class Logare {
                     stage.setScene(new Scene(root));
                     ParinteHomePage parinte = loader2.getController();
                     parinte.setUser(user);
-                    parinte.setDetalii(detalii);
                     stage.show();
                 }
 
