@@ -11,11 +11,16 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.CatalogVirtual.Exceptions.ContulDejaExista;
 import org.CatalogVirtual.Exceptions.ContulNuExista;
+import org.CatalogVirtual.model.User;
 import org.CatalogVirtual.services.UserService;
+import org.dizitart.no2.objects.ObjectRepository;
 
 import java.io.IOException;
 
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
+
 public class Logare {
+    private final ObjectRepository<User> REPOSITORY = UserService.getUserRepository();
     @FXML
     private Text registrationMessage;
     @FXML
@@ -28,11 +33,39 @@ public class Logare {
     private Button buttonCreare;
     public void handleLogareAction() throws Exception {
         try {
-            UserService.checkUserDoesAlreadyExist(usernameField.getText());
-            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("paginaprincipala.fxml"));
-            Stage stage = (Stage) (buttonLogare.getScene().getWindow());
-            stage.setScene(new Scene(root));
-            stage.show();
+            User user = UserService.login(usernameField.getText(), passwordField.getText());
+            String detalii = user.toString();
+            if(user.getRole().equals("Profesor")) {
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("profesorHomePage.fxml"));
+                Parent root= loader.load();
+                Stage stage = (Stage) (buttonLogare.getScene().getWindow());
+                stage.setScene(new Scene(root));
+                ProfesorHomePage profesor = loader.getController();
+                profesor.setUser(user);
+                profesor.setDetalii(detalii);
+                stage.show();}
+            else
+                if(user.getRole().equals("Elev")){
+                    FXMLLoader loader1 = new FXMLLoader(getClass().getClassLoader().getResource("elevHomePage.fxml"));
+                    Parent root= loader1.load();
+                    Stage stage = (Stage) (buttonLogare.getScene().getWindow());
+                    stage.setScene(new Scene(root));
+                    ElevHomePage elev = loader1.getController();
+                    elev.setUser(user);
+                    elev.setDetalii(detalii);
+                    stage.show();
+                }
+                else if(user.getRole().equals("Parinte"))
+                {
+                    FXMLLoader loader2 = new FXMLLoader(getClass().getClassLoader().getResource("parinteHomePage.fxml"));
+                    Parent root= loader2.load();
+                    Stage stage = (Stage) (buttonLogare.getScene().getWindow());
+                    stage.setScene(new Scene(root));
+                    ParinteHomePage parinte = loader2.getController();
+                    parinte.setUser(user);
+                    parinte.setDetalii(detalii);
+                    stage.show();
+                }
 
 
         } catch (ContulNuExista e) {
@@ -50,6 +83,12 @@ public class Logare {
         } catch(IOException e){
             registrationMessage.setText("eroare!");
         }
+    }
+    public String getUsername(){
+        return usernameField.getText();
+    }
+    public String getPassword(){
+        return passwordField.getText();
     }
 
 }

@@ -24,27 +24,38 @@ public class UserService {
 
         userRepository = database.getRepository(User.class);
     }
+    public static User login(String username, String password) throws ContulNuExista{
+        User crt;
 
+        crt = attemptLogin(username, password);
+
+        if(crt == null){
+            throw new ContulNuExista(username);
+        }
+
+        return crt;
+    }
+
+    public static User attemptLogin(String username, String password){
+        for (User user : userRepository.find()) {
+            if(Objects.equals(username, user.getUsername()) && Objects.equals(encodePassword(username, password), user.getPassword())){
+                return user;
+            }
+        }
+
+        return null;
+    }
     public static void addUser(String username, String password,String Nume,String Prenume,String role,String nrTel,String adresaEmail) throws ContulDejaExista {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password),Nume,Prenume, role,nrTel,adresaEmail));
     }
-
     private static void checkUserDoesNotAlreadyExist(String username) throws ContulDejaExista {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
                 throw new ContulDejaExista(username);
         }
     }
-    public static void checkUserDoesAlreadyExist(String username) throws ContulNuExista {
-        int exista=0;
-        for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getUsername()))
-                exista=1;
-        }
-        if (exista==0)
-            throw new ContulNuExista(username);
-    }
+
 
 
     private static String encodePassword(String salt, String password) {
@@ -69,4 +80,7 @@ public class UserService {
     }
 
 
+    public static ObjectRepository<User> getUserRepository() {
+        return userRepository;
+    }
 }
