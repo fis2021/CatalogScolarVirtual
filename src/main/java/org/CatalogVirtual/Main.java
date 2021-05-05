@@ -9,6 +9,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.stage.Stage;
 import org.CatalogVirtual.services.FileSystemService;
+import org.CatalogVirtual.services.MaterieService;
 import org.CatalogVirtual.services.UserService;
 
 import java.awt.*;
@@ -26,6 +27,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         initDirectory();
         UserService.initDatabase();
+        MaterieService.initDatabase();
         Parent root=FXMLLoader.load(getClass().getClassLoader().getResource("logare.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);

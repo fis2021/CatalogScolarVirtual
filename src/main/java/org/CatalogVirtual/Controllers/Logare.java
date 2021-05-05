@@ -9,15 +9,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.CatalogVirtual.Exceptions.ContulDejaExista;
 import org.CatalogVirtual.Exceptions.ContulNuExista;
 import org.CatalogVirtual.model.User;
 import org.CatalogVirtual.services.UserService;
 import org.dizitart.no2.objects.ObjectRepository;
 
 import java.io.IOException;
-
-import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class Logare {
     private final ObjectRepository<User> REPOSITORY = UserService.getUserRepository();
@@ -41,6 +38,7 @@ public class Logare {
                 Stage stage = (Stage) (buttonLogare.getScene().getWindow());
                 stage.setScene(new Scene(root));
                 ProfesorHomePage profesor = loader.getController();
+
                 profesor.setUser(user);
                 stage.show();}
             else

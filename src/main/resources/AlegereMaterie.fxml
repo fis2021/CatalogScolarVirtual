@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.paint.Color?>
+<GridPane hgap="2" prefHeight="500" prefWidth="600" style="-fx-background-color: PEACHPUFF" vgap="3" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CatalogVirtual.Controllers.AlegereMaterie">
+    <TilePane alignment="CENTER" prefHeight="100" prefWidth="600" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" GridPane.rowIndex="0">
+        <Text id="title-text" text="Alegeti materia" textAlignment="CENTER"><font>
+            <Font name="Bookman Old Style Bold Italic" size="24.0" />
+        </font></Text>
+        <effect>
+            <InnerShadow>
+                <color>
+                    <Color red="1.0" green="0.9870370626449585" blue="0.9870370626449585" />
+                </color>
+            </InnerShadow>
+        </effect>
+    </TilePane>
+
+
+    <ChoiceBox fx:id="Materie" prefWidth="300"  GridPane.rowIndex="10" style="-fx-alignment: center">
+    </ChoiceBox>
+    <HBox alignment="bottom_right" spacing="10"  GridPane.rowIndex="20">
+        <Button fx:id="buttonAlegereMaterie" onAction="#handleAlegere" text="Selectare"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+
+
+</GridPane>
