@@ -25,13 +25,14 @@ public class MaterieService {
     public static void addMaterie(String numeMaterie,String numeProfesor){
         materieRepository.insert(new Materie(numeMaterie,numeProfesor));
     }
-    private static void VerificaDacaElevulAFostDejaAdaugat(String numeElev) throws ElevulDejaExista {
+    private static void VerificaDacaElevulAFostDejaAdaugat(String numeElev,String numeMaterie,String numeProfesor) throws ElevulDejaExista {
         for(Materie materie:materieRepository.find()){
             int i;
-            for(i=0;i<materie.getelevi().length;i++){
-                if(Objects.equals(materie.getelevi()[i],numeElev)){
-                    throw new ElevulDejaExista(numeElev);
-
+            if(Objects.equals(numeMaterie,materie.getNumeMaterie())&&Objects.equals(numeProfesor,materie.getNumeProfesor())){
+                    for(i=0;i<materie.getelevi().length;i++){
+                        if(Objects.equals(materie.getelevi()[i],numeElev)){
+                            throw new ElevulDejaExista(numeElev);
+                        }
                 }
             }
         }
@@ -44,6 +45,7 @@ public class MaterieService {
         for(User user:REPOSITORY.find()){
             if(Objects.equals(user.getNume()+" "+user.getPrenume(),numeElev)&& user.getRole().equals("Elev")){
                 exista=1;
+                break;
             }
 
 
@@ -58,7 +60,7 @@ public class MaterieService {
         VerificaDacaElevulNuExista(numeElev);
         for(Materie materie:materieRepository.find()){
             if(Objects.equals(numeMaterie,materie.getNumeMaterie())&&Objects.equals(numeProfesor,materie.getNumeProfesor())){
-                VerificaDacaElevulAFostDejaAdaugat(numeElev);
+                VerificaDacaElevulAFostDejaAdaugat(numeElev,numeMaterie,numeProfesor);
                 materie.addElev(numeElev);
                 materieRepository.update(materie);
 

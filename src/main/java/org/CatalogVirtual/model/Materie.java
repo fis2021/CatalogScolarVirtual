@@ -8,7 +8,7 @@ public class Materie {
     private String numeProfesor;
     @Id
     private String numeMaterie;
-    private String[] elevi=new String[100];
+    private String[] elevi=new String[1];
 
     private int contor=0;
     //private ArrayList<String> elevi;
@@ -50,6 +50,18 @@ public class Materie {
 
         }
         elevi[contor++]=numeElev;
+    }
+    public boolean verificaElev(String numeElev)
+    {
+        int i;
+        for(i=0;i<contor;i++)
+        {
+            if(numeElev.equals(elevi[i]))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 

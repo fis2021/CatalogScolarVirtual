@@ -45,6 +45,17 @@ public class UserService {
 
         return null;
     }
+    public static User getUserDupaNume(String nume)
+    {
+        for(User user:userRepository.find())
+        {
+            if(Objects.equals(user.getNume()+" "+user.getPrenume(),nume))
+            {
+                return user;
+            }
+        }
+        return null;
+    }
     public static void addUser(String username, String password,String Nume,String Prenume,String role,String nrTel,String adresaEmail) throws ContulDejaExista {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password),Nume,Prenume, role,nrTel,adresaEmail));
@@ -83,4 +94,5 @@ public class UserService {
     public static ObjectRepository<User> getUserRepository() {
         return userRepository;
     }
+
 }

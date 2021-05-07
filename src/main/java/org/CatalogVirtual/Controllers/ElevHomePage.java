@@ -29,9 +29,13 @@ public class ElevHomePage {
 
     public void handleProfesori() throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("listaprofesori.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("vizualizareProfesori.fxml"));
+            Parent root= loader.load();
             Stage stage = (Stage) (butonProfesori.getScene().getWindow());
             stage.setScene(new Scene(root));
+            VizualizareProfesori vizualizare = loader.getController();
+            vizualizare.setUser(user);
+            vizualizare.setTableView();
             stage.show();
         }
         catch (IOException e)
