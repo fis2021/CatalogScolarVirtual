@@ -1,0 +1,107 @@
+package org.CatalogVirtual.Controllers;
+
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import org.CatalogVirtual.model.Materie;
+import org.CatalogVirtual.model.User;
+import org.CatalogVirtual.services.MaterieService;
+import org.CatalogVirtual.services.UserService;
+import org.dizitart.no2.objects.ObjectRepository;
+
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+
+public class VizualizareProfesori {
+    private static final ObjectRepository<Materie> REPOSITORY = MaterieService.getMaterieRepository();
+    @FXML
+    private User user;
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @FXML
+    private TableView<User> tableView=new TableView<User>();
+    @FXML
+    private Button backButton;
+    private static ArrayList<User> listOfProfesori = new ArrayList<User>();
+    private ObservableList<User> profesori;
+
+    public void setTableView() {
+        tableView.setEditable(true);
+
+        TableColumn firstNameCol = new TableColumn("Nume");
+        TableColumn lastNameCol = new TableColumn("Prenume");
+        TableColumn numberCol = new TableColumn("Numar de telefon");
+        TableColumn emailCol = new TableColumn("Email");
+        //TableColumn materieCol = new TableColumn("Materie");
+        firstNameCol.setMinWidth(20);
+        firstNameCol.setStyle("-fx-backround-color:NAVAJOWHITE");
+        lastNameCol.setMinWidth(20);
+        numberCol.setMinWidth(150);
+        emailCol.setMinWidth(150);
+        firstNameCol.setCellValueFactory(
+                new PropertyValueFactory<User,String>("Nume")
+        );
+        lastNameCol.setCellValueFactory(
+                new PropertyValueFactory<User,String>("Prenume")
+        );
+        emailCol.setCellValueFactory(
+                new PropertyValueFactory<User,String>("adresaEmail")
+        );
+        numberCol.setCellValueFactory(
+                new PropertyValueFactory<User,String>("nrTel")
+        );
+
+        for (Materie materie : REPOSITORY.find()) {
+            if (materie.verificaElev(user.getNume() + " " + user.getPrenume())==true) {
+                try {
+                    User profesor = UserService.getUserDupaNume(materie.getNumeProfesor());
+                    System.out.println(profesor.getNume());
+                    listOfProfesori.add(profesor);
+                }
+                catch (Exception e)
+                {
+                    System.out.println("eroare");
+                }
+            }
+        }
+        for(User user1:listOfProfesori)
+        {
+            System.out.println(user1);
+        }
+        profesori=FXCollections.observableArrayList(listOfProfesori);
+        tableView.setItems(profesori);
+        tableView.getColumns().addAll(firstNameCol, lastNameCol, numberCol, emailCol);
+
+    }
+
+    public void handleBackAction() throws Exception {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("elevHomePage.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) (backButton.getScene().getWindow());
+            stage.setScene(new Scene(root));
+            ElevHomePage elev = loader.getController();
+            elev.setUser(user);
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("Eroare");
+        }
+    }
+}
