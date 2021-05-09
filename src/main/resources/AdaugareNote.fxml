@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.paint.Color?>
+<GridPane hgap="2" alignment="CENTER" prefHeight="400" prefWidth="600" style="-fx-background-color: PEACHPUFF" vgap="3" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CatalogVirtual.Controllers.AdaugareNote">
+    <Text id="title-text" text="Adaugare Note" GridPane.columnIndex="0" textAlignment="CENTER" GridPane.columnSpan="2"
+          GridPane.rowIndex="0"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Text>
+    <Label  text="Nume Elev:" minWidth="70" GridPane.columnIndex="0" GridPane.rowIndex="1" ><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+    <TextField fx:id="NumeElev" GridPane.columnIndex="1" GridPane.rowIndex="1" ><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+    <Label text="Nota:" GridPane.columnIndex="0" GridPane.rowIndex="2"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+    <TextField fx:id="Nota" maxWidth="40" GridPane.columnIndex="1" GridPane.rowIndex="2" ><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+    <Label text="Zi:" GridPane.columnIndex="0" GridPane.rowIndex="3"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+    <TextField fx:id="zi" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="40"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+    <Label text="Luna:" GridPane.columnIndex="0" GridPane.rowIndex="4"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+    <TextField fx:id="luna" GridPane.columnIndex="1" GridPane.rowIndex="4" maxWidth="40"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+    <Label text="An:" GridPane.columnIndex="0" GridPane.rowIndex="5"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Label>
+    <TextField fx:id="an" GridPane.columnIndex="1" GridPane.rowIndex="5" maxWidth="60"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField>
+
+
+    <Text fx:id="setareMessage" GridPane.columnIndex="1" GridPane.rowIndex="6"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></Text>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
+        <Button fx:id="buttonAdaugare" onAction="#handleSetareNota" text="Adaugare"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+    <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="7">
+        <Button fx:id="buttonInapoi" onAction="#handleInapoi" text="Inapoi"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+
+
+
+
+</GridPane>

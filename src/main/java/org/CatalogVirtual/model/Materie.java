@@ -3,6 +3,7 @@ package org.CatalogVirtual.model;
 import org.dizitart.no2.objects.Id;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Materie {
     private String numeProfesor;
@@ -13,11 +14,15 @@ public class Materie {
     private int contor=0;
     //private ArrayList<String> elevi;
 
+
     public Materie(String numeMaterie,String numeProfesor){
         this.numeMaterie=numeMaterie;
         this.numeProfesor=numeProfesor;
         //elevi=new ArrayList<String>(10);
 
+    }
+    public int getContor(){
+        return contor;
     }
     public Materie(){}
 
@@ -33,7 +38,7 @@ public class Materie {
     public String getNumeMaterie(){
         return numeMaterie;
     }
-    public String[] getelevi(){ return elevi;}
+   public String[] getelevi(){ return elevi;}
 
    /* public void addElev(String numeElev){
         elevi.add(numeElev);
@@ -63,6 +68,7 @@ public class Materie {
         }
         return false;
     }
+
 
 
 }

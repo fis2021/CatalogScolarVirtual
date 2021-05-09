@@ -56,10 +56,14 @@ public class ProfesorHomePage {
 
     public void handleAdaugareNote() throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("adaugarenote.fxml"));
-            Stage stage = (Stage) (butonAdaugareNote.getScene().getWindow());
-            stage.setScene(new Scene(root));
-            stage.show();
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AdaugareNote.fxml"));
+                Parent root= loader.load();
+                Stage stage = (Stage) (butonAdaugareNote.getScene().getWindow());
+                stage.setScene(new Scene(root));
+                AdaugareNote adaugare = loader.getController();
+                adaugare.setUser(user);
+                stage.show();
+
         }
         catch (IOException e)
         {
