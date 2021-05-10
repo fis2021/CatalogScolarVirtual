@@ -38,4 +38,7 @@ public class AnuntService {
             throw new ParinteleNuExista(numeParinte);
 
     }
+    public static ObjectRepository<Anunt> getAnuntRepository(){
+        return anuntRepository;
+    }
 }

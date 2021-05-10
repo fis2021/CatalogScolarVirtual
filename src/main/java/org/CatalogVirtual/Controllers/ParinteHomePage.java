@@ -27,28 +27,21 @@ public class ParinteHomePage {
     {
         this.user=user;
     }
-    public void handleVizualizareNote() throws IOException {
-        try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("vizualizarenote.fxml"));
-            Stage stage = (Stage) (butonVizualizareNote.getScene().getWindow());
-            stage.setScene(new Scene(root));
-            stage.show();
-        }
-        catch (IOException e)
-        {
-            System.out.println("eroare");
-        }
-    }
+    public void handleVizualizareNote(){}
     public void handleAnunturi() throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("listaanunturi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ParintiAnunturi.fxml"));
+            Parent root= loader.load();
             Stage stage = (Stage) (butonAnunturi.getScene().getWindow());
             stage.setScene(new Scene(root));
+            ParintiVizualizareAnunturi vizualizare = loader.getController();
+            vizualizare.setUser(user);
+            vizualizare.initializare();
             stage.show();
         }
         catch (IOException e)
         {
-            System.out.println("eroare");
+            System.out.println(e.getMessage());
         }
     }
     public void handleProfesori() throws IOException {
