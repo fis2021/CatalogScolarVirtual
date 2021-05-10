@@ -28,6 +28,7 @@ import java.util.Objects;
 
 public class VizualizareProfesori {
     private static final ObjectRepository<Materie> REPOSITORY = MaterieService.getMaterieRepository();
+    private static final ObjectRepository<User> REPOSITORY1 = UserService.getUserRepository();
     @FXML
     private User user;
 
@@ -67,7 +68,6 @@ public class VizualizareProfesori {
         numberCol.setCellValueFactory(
                 new PropertyValueFactory<User,String>("nrTel")
         );
-
         for (Materie materie : REPOSITORY.find()) {
             if (materie.verificaElev(user.getNume() + " " + user.getPrenume())==true) {
                 try {
@@ -80,10 +80,6 @@ public class VizualizareProfesori {
                     System.out.println("eroare");
                 }
             }
-        }
-        for(User user1:listOfProfesori)
-        {
-            System.out.println(user1);
         }
         profesori=FXCollections.observableArrayList(listOfProfesori);
         tableView.setItems(profesori);

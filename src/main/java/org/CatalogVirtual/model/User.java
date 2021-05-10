@@ -64,15 +64,15 @@ public class User {
         this.role = role;
     }
 
-    public String getnrTel() {
+    public String getNrTel() {
         return nrTel;
     }
 
-    public void setnrTel(String nrTel) {
+    public void setNrTel(String nrTel) {
         this.nrTel = nrTel;
     }
 
-    public String getadresaEmail() {
+    public String getAdresaEmail() {
         return adresaEmail;
     }
 
