@@ -72,4 +72,8 @@ public class NoteService {
             }
         }
     }
+
+    public static ObjectRepository<Nota> getNotaRepository() {
+        return notaRepository;
+    }
 }

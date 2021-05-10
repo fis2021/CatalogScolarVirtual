@@ -28,6 +28,7 @@ public class Main extends Application {
         MaterieService.initDatabase();
         NoteService.initDatabase();
         AnuntService.initDatabase();
+        AbsentaService.initDatabase();
         Parent root=FXMLLoader.load(getClass().getClassLoader().getResource("logare.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);

@@ -45,9 +45,12 @@ public class ElevHomePage {
     }
     public void handleSituatieScolara() throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("listanote.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("VizualizareMaterii.fxml"));
+            Parent root= loader.load();
             Stage stage = (Stage) (butonSituatieScolara.getScene().getWindow());
             stage.setScene(new Scene(root));
+            VizualizareMaterii vizualizare = loader.getController();
+            vizualizare.setUser(user);
             stage.show();
         }
         catch (IOException e)

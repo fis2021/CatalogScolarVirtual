@@ -14,6 +14,10 @@ import static org.CatalogVirtual.services.FileSystemService.getPathToFile;
 public class AbsentaService {
     private static ObjectRepository<Absenta> absentaRepository;
 
+    public static ObjectRepository<Absenta> getAbsentaRepository() {
+        return absentaRepository;
+    }
+
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Baza_de_date_absente.db").toFile())
