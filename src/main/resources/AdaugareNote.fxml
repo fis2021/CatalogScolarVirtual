@@ -50,12 +50,17 @@
     <Text fx:id="setareMessage" GridPane.columnIndex="1" GridPane.rowIndex="6"><font>
         <Font name="System Bold" size="12.0" />
     </font></Text>
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
-        <Button fx:id="buttonAdaugare" onAction="#handleSetareNota" text="Adaugare"><font>
+    <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="7">
+        <Button fx:id="buttonAdaugare" onAction="#handleSetareNota" text="Nota"><font>
             <Font name="System Bold" size="12.0" />
         </font></Button>
     </HBox>
-    <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="7">
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
+        <Button fx:id="buttonAbsenta" onAction="#handleAbsenta" text="Absenta"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+    <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
         <Button fx:id="buttonInapoi" onAction="#handleInapoi" text="Inapoi"><font>
             <Font name="System Bold" size="12.0" />
         </font></Button>

@@ -37,6 +37,8 @@ public class AdaugareNote {
     private Button buttonInapoi;
     @FXML
     private Button buttonAdaugare;
+    @FXML
+    private Button buttonAbsenta;
     private User user;
     public void setUser(User user){
         this.user=user;
@@ -51,6 +53,19 @@ public class AdaugareNote {
             stage.setScene(new Scene(root));
             ProfesorHomePage profesor = loader.getController();
             profesor.setUser(user);
+            stage.show();
+        }catch(Exception e){
+            System.out.println("Eroare!");
+        }
+    }
+    public void handleAbsenta()throws Exception {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AdaugareAbsente.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) (buttonAbsenta.getScene().getWindow());
+            stage.setScene(new Scene(root));
+            AdaugaAbsente absenta = loader.getController();
+            absenta.setUser(user);
             stage.show();
         }catch(Exception e){
             System.out.println("Eroare!");
