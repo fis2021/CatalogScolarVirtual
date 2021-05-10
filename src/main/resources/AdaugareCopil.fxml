@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.paint.Color?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" style="-fx-background-color: PEACHPUFF" hgap="10" prefHeight="400" prefWidth="600"
+          vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="org.CatalogVirtual.Controllers.AdaugareCopil">
+   <GridPane GridPane.rowIndex="1" alignment="CENTER">
+        <Text id="title-text" text="Adaugati copilul" textAlignment="CENTER"><font>
+            <Font name="Bookman Old Style Bold Italic" size="24.0" />
+        </font></Text>
+   </GridPane>
+
+    <GridPane GridPane.rowIndex="2" alignment="CENTER">
+    <Label text="Nume elev:" GridPane.columnIndex="0" GridPane.rowIndex="1"><font>
+    <Font name="System Bold" size="12.0" />
+    </font></Label>
+
+    <TextField fx:id="numeElev" GridPane.columnIndex="1" GridPane.rowIndex="1"><font>
+        <Font name="System Bold" size="12.0" />
+    </font></TextField></GridPane>
+    <GridPane GridPane.rowIndex="3" alignment="CENTER">
+        <Text fx:id="mesajSetare" GridPane.rowIndex="1" GridPane.columnIndex="1"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Text>
+    <HBox alignment="bottom_right" spacing="10"  GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <Button fx:id="buttonInapoi" onAction="#handleInapoi" text="Inapoi"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+    <HBox alignment="bottom_left" spacing="10"  GridPane.rowIndex="2" GridPane.columnIndex="1">
+        <Button fx:id="setare" onAction="#handleSetare" text="Adaugare copil"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox></GridPane>
+
+</GridPane>

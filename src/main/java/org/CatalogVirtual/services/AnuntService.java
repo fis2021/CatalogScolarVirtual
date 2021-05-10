@@ -41,4 +41,5 @@ public class AnuntService {
     public static ObjectRepository<Anunt> getAnuntRepository(){
         return anuntRepository;
     }
+
 }

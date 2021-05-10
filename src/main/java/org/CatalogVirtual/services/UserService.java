@@ -1,6 +1,7 @@
 package org.CatalogVirtual.services;
 
 import org.CatalogVirtual.Exceptions.ContulNuExista;
+import org.CatalogVirtual.model.Parinte;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.CatalogVirtual.Exceptions.ContulDejaExista;
