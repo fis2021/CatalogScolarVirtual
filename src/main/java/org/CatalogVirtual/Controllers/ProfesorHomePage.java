@@ -87,10 +87,13 @@ public class ProfesorHomePage {
     }
     public void handleTrimitereAnunturi() throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("trimitereanunturi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("trimitereanunturi.fxml"));
+            Parent root= loader.load();
             Stage stage = (Stage) (trimitereAnunturi.getScene().getWindow());
             stage.setScene(new Scene(root));
-            stage.show();
+            AdaugaAnunt adaugare = loader.getController();
+            adaugare.setUser(user);
+            stage.show();;
         }
         catch (IOException e)
         {
