@@ -38,10 +38,8 @@ public class AnuntService {
             throw new ParinteleNuExista(numeParinte);
 
     }
-<<<<<<< HEAD
-=======
     public static ObjectRepository<Anunt> getAnuntRepository(){
         return anuntRepository;
     }
->>>>>>> 5341a63c2ffac5797c6b22a65952eb6603fbbd14
+
 }

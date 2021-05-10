@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import org.CatalogVirtual.model.Materie;
 import org.CatalogVirtual.model.User;
 import org.CatalogVirtual.services.MaterieService;
+import org.CatalogVirtual.services.ParinteService;
 import org.CatalogVirtual.services.UserService;
 import org.dizitart.no2.objects.ObjectRepository;
 
@@ -31,6 +32,7 @@ public class VizualizareProfesori {
     private static final ObjectRepository<User> REPOSITORY1 = UserService.getUserRepository();
     @FXML
     private User user;
+    private String numeElev;
 
     public void setUser(User user) {
         this.user = user;
@@ -68,11 +70,18 @@ public class VizualizareProfesori {
         numberCol.setCellValueFactory(
                 new PropertyValueFactory<User,String>("nrTel")
         );
+        if(user.getRole().equals("Elev")){
+            numeElev= user.getNume()+" "+user.getPrenume();
+        }
+        else
+            if (user.getRole().equals("Parinte"))
+        {
+            numeElev= ParinteService.getElev(user.getNume()+" "+user.getPrenume());
+        }
         for (Materie materie : REPOSITORY.find()) {
-            if (materie.verificaElev(user.getNume() + " " + user.getPrenume())==true) {
+            if (materie.verificaElev(numeElev)==true) {
                 try {
                     User profesor = UserService.getUserDupaNume(materie.getNumeProfesor());
-                    System.out.println(profesor.getNume());
                     listOfProfesori.add(profesor);
                 }
                 catch (Exception e)
