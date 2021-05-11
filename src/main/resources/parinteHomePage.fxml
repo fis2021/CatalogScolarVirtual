@@ -20,22 +20,28 @@
         </effect>
     </TilePane>
     <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="10">
-        <Button fx:id="butonAnunturi" prefHeight="40" prefWidth="400" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" onAction="#handleAnunturi"  text="Vizualizare anunturi" ><font>
+        <Button fx:id="adaugareCopil" prefHeight="40" prefWidth="400" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" onAction="#handleAdaugareCopil"  text="Adaugare copil" ><font>
             <Font name="System Bold" size="12.0" />
         </font>
         </Button>
     </HBox>
     <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="20">
+        <Button fx:id="butonAnunturi" prefHeight="40" prefWidth="400" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" onAction="#handleAnunturi"  text="Vizualizare anunturi" ><font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+        </Button>
+    </HBox>
+    <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="30">
         <Button fx:id="butonProfesori" onAction="#handleProfesori" prefHeight="40" prefWidth="400" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" text="Date de contact ale profesorilor"><font>
             <Font name="System Bold" size="12.0" />
         </font></Button>
     </HBox>
-    <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="30">
+    <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="40">
         <Button fx:id="butonVizualizareNote" prefHeight="40" prefWidth="400" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" onAction="#handleVizualizareNote" text="Vizualizare situatie scolara"><font>
             <Font name="System Bold" size="12.0" />
         </font></Button>
     </HBox>
-    <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="40">
+    <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="50">
         <Button fx:id="butonDeconectare" prefHeight="40" prefWidth="400" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" onAction="#handleDeconectare" text="Deconectare"><font>
             <Font name="System Bold" size="12.0" />
         </font></Button>

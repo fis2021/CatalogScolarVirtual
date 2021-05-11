@@ -16,6 +16,8 @@ public class ParinteHomePage {
     @FXML
     private Button butonVizualizareNote;
     @FXML
+    private Button adaugareCopil;
+    @FXML
     private Button butonAnunturi;
     @FXML
     private Button butonProfesori;
@@ -46,9 +48,13 @@ public class ParinteHomePage {
     }
     public void handleProfesori() throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("listaprofesori.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("vizualizareProfesori.fxml"));
+            Parent root= loader.load();
             Stage stage = (Stage) (butonProfesori.getScene().getWindow());
             stage.setScene(new Scene(root));
+            VizualizareProfesori vizualizare = loader.getController();
+            vizualizare.setUser(user);
+            vizualizare.setTableView();
             stage.show();
         }
         catch (IOException e)
@@ -66,6 +72,19 @@ public class ParinteHomePage {
         }
         catch (IOException e)
         {
+            System.out.println("eroare");
+        }
+    }
+    public void handleAdaugareCopil() throws Exception{
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AdaugareCopil.fxml"));
+            Parent root= loader.load();
+            Stage stage = (Stage) (adaugareCopil.getScene().getWindow());
+            stage.setScene(new Scene(root));
+            AdaugareCopil adaugare = loader.getController();
+            adaugare.setUser(user);
+            stage.show();
+        } catch (Exception e){
             System.out.println("eroare");
         }
     }
