@@ -9,6 +9,15 @@ public class Data {
         this.luna=luna;
         this.an=an;
     }
+    public Data(){}
+
+    @Override
+    public String toString() {
+        return zi +
+                "/" + luna +
+                "/" + an ;
+    }
+
     public int getZi(){
         return zi;
     }
