@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import org.CatalogVirtual.model.Nota;
 import org.CatalogVirtual.model.User;
 import org.CatalogVirtual.services.NoteService;
+import org.CatalogVirtual.services.ParinteService;
 import org.dizitart.no2.objects.ObjectRepository;
 
 
@@ -44,26 +45,33 @@ public class Medie {
         String fizica="Fizica:";
         String geografie="Geografie:";
         String engleza="Engleza:";
+        String numeElev;
+        if(user.getRole().equals("Elev")){
+            numeElev=user.getNume()+" "+user.getPrenume();
+        }
+        else {
+            numeElev= ParinteService.getElev(user.getNume()+" "+user.getPrenume());
+        }
         double medieMatematica,medieInformatica,medieFizica,medieGeografie,medieEngleza;
         double medieAnuala;
         for(Nota nota:REPOSITORY.find()){
-            if(nota.getMaterie().equals("Matematica" )&& nota.getNumeElev().equals(user.getNume()+" "+user.getPrenume())){
+            if(nota.getMaterie().equals("Matematica" )&& nota.getNumeElev().equals(numeElev)){
                 notaMatematica=notaMatematica+ nota.getValue();
                 nrNoteMatemetica++;
             }
-            if(nota.getMaterie().equals("Informatica" )&& nota.getNumeElev().equals(user.getNume()+" "+user.getPrenume())){
+            if(nota.getMaterie().equals("Informatica" )&& nota.getNumeElev().equals(numeElev)){
                 notaInformatica=notaInformatica+ nota.getValue();
                 nrNoteInformatica++;
             }
-            if(nota.getMaterie().equals("Fizica" )&& nota.getNumeElev().equals(user.getNume()+" "+user.getPrenume())){
+            if(nota.getMaterie().equals("Fizica" )&& nota.getNumeElev().equals(numeElev)){
                 notaFizica=notaFizica+ nota.getValue();
                 nrNoteFizica++;
             }
-            if(nota.getMaterie().equals("Geografie" )&& nota.getNumeElev().equals(user.getNume()+" "+user.getPrenume())){
+            if(nota.getMaterie().equals("Geografie" )&& nota.getNumeElev().equals(numeElev)){
                 notaGeografie=notaGeografie+ nota.getValue();
                 nrNoteGeografie++;
             }
-            if(nota.getMaterie().equals("Engleza" )&& nota.getNumeElev().equals(user.getNume()+" "+user.getPrenume())){
+            if(nota.getMaterie().equals("Engleza" )&& nota.getNumeElev().equals(numeElev)){
                 notaEngleza=notaEngleza+ nota.getValue();
                 nrNoteEngleza++;
             }

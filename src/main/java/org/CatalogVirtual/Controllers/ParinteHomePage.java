@@ -29,7 +29,6 @@ public class ParinteHomePage {
     {
         this.user=user;
     }
-    public void handleVizualizareNote(){}
     public void handleAnunturi() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ParintiAnunturi.fxml"));
@@ -44,6 +43,22 @@ public class ParinteHomePage {
         catch (IOException e)
         {
             System.out.println(e.getMessage());
+        }
+    }
+    public void handleVizualizareNote() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("VizualizareMaterii.fxml"));
+            Parent root= loader.load();
+            Stage stage = (Stage) (butonVizualizareNote.getScene().getWindow());
+            stage.setScene(new Scene(root));
+            VizualizareMaterii vizualizare = loader.getController();
+            vizualizare.setUser(user);
+
+            stage.show();
+        }
+        catch (IOException e)
+        {
+            System.out.println("eroare");
         }
     }
     public void handleProfesori() throws IOException {
@@ -62,7 +77,6 @@ public class ParinteHomePage {
             System.out.println("eroare");
         }
     }
-
     public void handleDeconectare() throws IOException {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("logare.fxml"));

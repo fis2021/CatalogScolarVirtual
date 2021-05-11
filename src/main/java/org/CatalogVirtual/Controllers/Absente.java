@@ -17,6 +17,7 @@ import org.CatalogVirtual.model.Nota;
 import org.CatalogVirtual.model.User;
 import org.CatalogVirtual.services.AbsentaService;
 import org.CatalogVirtual.services.NoteService;
+import org.CatalogVirtual.services.ParinteService;
 import org.dizitart.no2.objects.ObjectRepository;
 
 import java.util.ArrayList;
@@ -32,11 +33,17 @@ public class Absente {
     private TableView<Absenta> tableView;
     @FXML
     private Button backButton;
-    private static ArrayList<Absenta> listOfAbsente = new ArrayList<Absenta>();
+    private  ArrayList<Absenta> listOfAbsente = new ArrayList<Absenta>();
     private ObservableList<Absenta> absenta ;
     public void setTableView() {
         tableView.setEditable(true);
-
+        String numeElev;
+        if(user.getRole().equals("Elev")){
+            numeElev=user.getNume()+" "+user.getPrenume();
+        }
+        else {
+            numeElev= ParinteService.getElev(user.getNume()+" "+user.getPrenume());
+        }
         TableColumn firstNameCol = new TableColumn("Nume materie");
         TableColumn dataCol = new TableColumn("Data");
         //TableColumn materieCol = new TableColumn("Materie");
@@ -49,7 +56,7 @@ public class Absente {
                 new PropertyValueFactory<Absenta, Data>("data")
         );
         for (Absenta absenta : REPOSITORY.find()) {
-            if (absenta.getNumeElev().equals(user.getNume() + " " + user.getPrenume())==true) {
+            if (absenta.getNumeElev().equals(numeElev)==true) {
                 try {
                     listOfAbsente.add(absenta);
                 }

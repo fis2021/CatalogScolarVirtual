@@ -17,6 +17,7 @@ import org.CatalogVirtual.model.Nota;
 import org.CatalogVirtual.model.User;
 import org.CatalogVirtual.services.MaterieService;
 import org.CatalogVirtual.services.NoteService;
+import org.CatalogVirtual.services.ParinteService;
 import org.CatalogVirtual.services.UserService;
 import org.dizitart.no2.objects.ObjectRepository;
 
@@ -33,11 +34,11 @@ public class Note {
     private TableView<Nota> tableView;
     @FXML
     private Button backButton;
-    private static ArrayList<Nota> listOfNote = new ArrayList<Nota>();
+    private  ArrayList<Nota> listOfNote = new ArrayList<Nota>();
     private ObservableList<Nota>note ;
     public void setTableView() {
+        String numeElev;
         tableView.setEditable(true);
-
         TableColumn firstNameCol = new TableColumn("Nume materie");
         TableColumn notaCol = new TableColumn("Nota");
         TableColumn dataCol = new TableColumn("Data");
@@ -53,8 +54,14 @@ public class Note {
         notaCol.setCellValueFactory(
                 new PropertyValueFactory<Nota,Integer>("value")
         );
+        if(user.getRole().equals("Elev")){
+            numeElev=user.getNume()+" "+user.getPrenume();
+        }
+        else {
+            numeElev= ParinteService.getElev(user.getNume()+" "+user.getPrenume());
+        }
         for (Nota nota : REPOSITORY.find()) {
-            if (nota.getNumeElev().equals(user.getNume() + " " + user.getPrenume())==true) {
+            if (nota.getNumeElev().equals(numeElev)==true&&listOfNote.contains(nota)==false) {
                 try {
                     listOfNote.add(nota);
                 }
