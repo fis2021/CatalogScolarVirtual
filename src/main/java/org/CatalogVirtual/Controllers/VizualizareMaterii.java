@@ -24,6 +24,8 @@ public class VizualizareMaterii {
     private Button Medie;
     @FXML
     private Button Absente;
+    @FXML
+    private Button backButton;
 
     public void handleNote() throws IOException {
         try {
@@ -48,9 +50,9 @@ public class VizualizareMaterii {
             Parent root= loader.load();
             Stage stage = (Stage) (Nota.getScene().getWindow());
             stage.setScene(new Scene(root));
-            Absente nota = loader.getController();
-            nota.setUser(user);
-            nota.setTableView();
+            Absente absente = loader.getController();
+            absente.setUser(user);
+            absente.setTableView();
             stage.show();
 
         }
@@ -77,7 +79,35 @@ public class VizualizareMaterii {
             System.out.println("eroare");
         }
     }
+    public void handleInapoi() throws Exception{
+        try{
+            if(user.getRole().equals("Elev")){
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("elevHomePage.fxml"));
+                Parent root= loader.load();
+                Stage stage = (Stage) (backButton.getScene().getWindow());
+                stage.setScene(new Scene(root));
+               ElevHomePage elev = loader.getController();
+                elev.setUser(user);
 
+                stage.show();
+            }
+            else{
+                if(user.getRole().equals("Parinte")){
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("parinteHomePage.fxml"));
+                    Parent root= loader.load();
+                    Stage stage = (Stage) (backButton.getScene().getWindow());
+                    stage.setScene(new Scene(root));
+                    ParinteHomePage parinte = loader.getController();
+                    parinte.setUser(user);
+
+                    stage.show();
+                }
+            }
+
+        }catch (Exception e){
+            System.out.println("eroare");
+        }
+    }
 
 
 }

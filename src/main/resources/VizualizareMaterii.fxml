@@ -12,19 +12,24 @@
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
           fx:controller="org.CatalogVirtual.Controllers.VizualizareMaterii">
 
-    <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="0">
+    <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <Button fx:id="Nota" prefHeight="40" prefWidth="400" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" onAction="#handleNote" text="Note"><font>
             <Font name="System Bold" size="12.0" />
         </font></Button>
     </HBox>
-    <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="1">
+    <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <Button fx:id="Absente"  prefHeight="40" prefWidth="400" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" onAction="#handleAbsente"  text="Absente" ><font>
             <Font name="System Bold" size="12.0" />
         </font>
         </Button>
     </HBox>
-    <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="2">
+    <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="1">
         <Button fx:id="Medie" prefHeight="40" prefWidth="400" onAction="#handleMedie" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" text="Medie"><font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    </HBox>
+    <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Button fx:id="backButton" prefHeight="40" prefWidth="400" onAction="#handleInapoi" style="-fx-background-color: BURLYWOOD; -fx-border-style: inset; -fx-border-style: outset; -fx-border-color: BLACK;" text="Inapoi"><font>
             <Font name="System Bold" size="12.0" />
         </font></Button>
     </HBox>

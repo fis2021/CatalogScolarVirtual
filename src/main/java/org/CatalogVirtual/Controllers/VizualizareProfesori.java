@@ -16,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.CatalogVirtual.model.Materie;
+import org.CatalogVirtual.model.Parinte;
 import org.CatalogVirtual.model.User;
 import org.CatalogVirtual.services.MaterieService;
 import org.CatalogVirtual.services.ParinteService;
@@ -42,7 +43,7 @@ public class VizualizareProfesori {
     private TableView<User> tableView=new TableView<User>();
     @FXML
     private Button backButton;
-    private static ArrayList<User> listOfProfesori = new ArrayList<User>();
+    private ArrayList<User> listOfProfesori = new ArrayList<User>();
     private ObservableList<User> profesori;
 
     public void setTableView() {
@@ -98,13 +99,24 @@ public class VizualizareProfesori {
 
     public void handleBackAction() throws Exception {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("elevHomePage.fxml"));
+            if (user.getRole().equals("Elev"))
+            {FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("elevHomePage.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) (backButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             ElevHomePage elev = loader.getController();
             elev.setUser(user);
-            stage.show();
+            stage.show();}
+            else
+                if (user.getRole().equals("Parinte")){
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("parinteHomePage.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = (Stage) (backButton.getScene().getWindow());
+                    stage.setScene(new Scene(root));
+                    ParinteHomePage elev = loader.getController();
+                    elev.setUser(user);
+                    stage.show();
+                }
         } catch (Exception e) {
             System.out.println("Eroare");
         }
