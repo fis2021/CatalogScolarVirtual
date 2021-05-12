@@ -2,7 +2,7 @@ package org.CatalogVirtual.model;
 
 public class Nota {
     private Data data;
-    private Integer value;
+    private int value;
     private String materie;
     private String numeProfesor;
     private String numeElev;
@@ -16,34 +16,12 @@ public class Nota {
         this.numeProfesor=numeProfesor;
     }
 
-    public Data getData(){
-        return data;
-    }
-    public String getMaterie(){
-        return materie;
-    }
-
     public String getNumeProfesor() {
         return numeProfesor;
     }
 
     public void setNumeProfesor(String numeProfesor) {
         this.numeProfesor = numeProfesor;
-    }
-
-    public Integer getValue() {
-        return value;
-    }
-
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
-    public void setMaterie(String materie){
-        this.materie=materie;
-    }
-    public void setData(Data data){
-        this.data=data;
     }
 
     public String getNumeElev() {
@@ -53,4 +31,25 @@ public class Nota {
     public void setNumeElev(String numeElev) {
         this.numeElev = numeElev;
     }
+
+    public int getValue(){
+        return value;
+    }
+    public Data getData(){
+        return data;
+    }
+    public String getMaterie(){
+        return materie;
+    }
+
+    public void setMaterie(String materie){
+        this.materie=materie;
+    }
+    public void setValue(int value){
+        this.value=value;
+    }
+    public void setData(Data data){
+        this.data=data;
+    }
+
 }
