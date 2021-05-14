@@ -79,7 +79,7 @@
         <Font name="System Bold" size="12.0" />
     </font></Text>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
-        <Button  onAction="#handleRegisterAction" text="Inregistrare"><font>
+        <Button fx:id="buttonCreare"  onAction="#handleRegisterAction" text="Inregistrare"><font>
             <Font name="System Bold" size="12.0" />
         </font></Button>
     </HBox>
