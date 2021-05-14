@@ -10,6 +10,7 @@ import org.CatalogVirtual.model.User;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static org.CatalogVirtual.services.FileSystemService.getPathToFile;
@@ -17,9 +18,10 @@ import static org.CatalogVirtual.services.FileSystemService.getPathToFile;
 public class UserService {
 
     private static ObjectRepository<User> userRepository;
-
+    private static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(getPathToFile("registration-example.db").toFile())
                 .openOrCreate("test", "test");
 
@@ -70,7 +72,7 @@ public class UserService {
 
 
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -90,10 +92,16 @@ public class UserService {
         }
         return md;
     }
-
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
+    }
 
     public static ObjectRepository<User> getUserRepository() {
         return userRepository;
     }
+    public static Nitrite getDatabase(){
+        return database;
+    }
+
 
 }
