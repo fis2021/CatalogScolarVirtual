@@ -23,7 +23,7 @@ public class Main extends Application {
 
 
     public void start(Stage stage) throws Exception {
-        initDirectory();
+
         UserService.initDatabase();
         MaterieService.initDatabase();
         NoteService.initDatabase();
@@ -38,11 +38,7 @@ public class Main extends Application {
     }
 
 
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
-    }
+
 
 
     public static void main(String[] args) {

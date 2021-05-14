@@ -10,14 +10,17 @@ import org.CatalogVirtual.model.User;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
+import java.util.List;
+
 import static org.CatalogVirtual.services.FileSystemService.getPathToFile;
 
 public class NoteService {
 
     private static ObjectRepository<Nota> notaRepository;
-
+    private static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+         database = Nitrite.builder()
                 .filePath(getPathToFile("note.db").toFile())
                 .openOrCreate("test", "test");
 
@@ -75,5 +78,11 @@ public class NoteService {
 
     public static ObjectRepository<Nota> getNotaRepository() {
         return notaRepository;
+    }
+    public static List<Nota> getAllNotes(){
+        return notaRepository.find().toList();
+    }
+    public static Nitrite getDatabase(){
+        return database;
     }
 }

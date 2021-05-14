@@ -7,13 +7,16 @@ import org.CatalogVirtual.model.User;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
+import java.util.List;
+
 import static org.CatalogVirtual.services.FileSystemService.getPathToFile;
 
 public class AnuntService {
     private static ObjectRepository<Anunt> anuntRepository;
-
+    public static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Baza_de_date_anunturi.db").toFile())
                 .openOrCreate("test1", "test1");
 
@@ -37,6 +40,12 @@ public class AnuntService {
         if(exista==0)
             throw new ParinteleNuExista(numeParinte);
 
+    }
+    public static Nitrite getDatabase(){
+        return database;
+    }
+    public static List<Anunt> getAllAnunturi(){
+        return anuntRepository.find().toList();
     }
     public static ObjectRepository<Anunt> getAnuntRepository(){
         return anuntRepository;

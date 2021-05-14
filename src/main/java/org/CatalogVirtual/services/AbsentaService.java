@@ -9,6 +9,8 @@ import org.CatalogVirtual.model.Materie;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
+import java.util.List;
+
 import static org.CatalogVirtual.services.FileSystemService.getPathToFile;
 
 public class AbsentaService {
@@ -17,9 +19,10 @@ public class AbsentaService {
     public static ObjectRepository<Absenta> getAbsentaRepository() {
         return absentaRepository;
     }
-
+    private static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Baza_de_date_absente.db").toFile())
                 .openOrCreate("test1", "test1");
 
@@ -65,5 +68,11 @@ public class AbsentaService {
                     throw new ElevulNuAFostAdaugat(numeElev);
             }
         }
+    }
+    public static Nitrite getDatabase(){
+        return database;
+    }
+    public static List<Absenta> getAllAbstente(){
+        return absentaRepository.find().toList();
     }
 }
