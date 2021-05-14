@@ -44,6 +44,11 @@ public class AdaugareNote {
         this.user=user;
 
     }
+
+    public Text getSetareMessage() {
+        return setareMessage;
+    }
+
     private static final ObjectRepository<Materie> REPOSITORY= MaterieService.getMaterieRepository();
     public void handleInapoi()throws Exception {
         try {
