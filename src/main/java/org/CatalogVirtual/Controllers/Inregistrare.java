@@ -38,8 +38,6 @@ public class Inregistrare<numarTelefon, numberField> {
     private Button buttonInregistrare;
 
 
-
-
     @FXML
     public void initialize() {
         role.getItems().addAll("Profesor", "Elev","Parinte");
