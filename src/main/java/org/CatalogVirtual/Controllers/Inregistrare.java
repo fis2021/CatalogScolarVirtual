@@ -35,7 +35,7 @@ public class Inregistrare<numarTelefon, numberField> {
     @FXML
     private Button button;
     @FXML
-    private Button buttonCreare;
+    private Button buttonInregistrare;
 
 
     @FXML
