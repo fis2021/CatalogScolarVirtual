@@ -34,6 +34,9 @@ public class Inregistrare<numarTelefon, numberField> {
     private TextField adresaEmail;
     @FXML
     private Button button;
+    @FXML
+    private Button buttonInregistrare;
+
 
 
 
