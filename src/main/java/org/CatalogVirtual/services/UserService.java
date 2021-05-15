@@ -95,10 +95,6 @@ public class UserService {
     public static List<User> getAllUsers() {
         return userRepository.find().toList();
     }
-
-    public static ObjectRepository<User> getUserRepository() {
-        return userRepository;
-    }
     public static Nitrite getDatabase(){
         return database;
     }

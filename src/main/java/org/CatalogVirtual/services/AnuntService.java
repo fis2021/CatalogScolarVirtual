@@ -27,10 +27,10 @@ public class AnuntService {
         VerificaParinte(numeParinte);
         anuntRepository.insert(new Anunt(mesaj,numeProfesor,numeParinte));
     }
-    private static final ObjectRepository<User> REPOSITORY= UserService.getUserRepository();
+
     private static void VerificaParinte(String numeParinte) throws ParinteleNuExista{
         int exista=0;
-        for (User user:REPOSITORY.find()){
+        for (User user:UserService.getAllUsers()){
             if(numeParinte.equals(user.getNume()+" "+user.getPrenume())&&user.getRole().equals("Parinte"))
             {
                 exista=1;
@@ -46,8 +46,5 @@ public class AnuntService {
     }
     public static List<Anunt> getAllAnunturi(){
         return anuntRepository.find().toList();
-    }
-    public static ObjectRepository<Anunt> getAnuntRepository(){
-        return anuntRepository;
     }
 }

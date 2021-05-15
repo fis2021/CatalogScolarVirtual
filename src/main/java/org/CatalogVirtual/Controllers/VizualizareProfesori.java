@@ -29,8 +29,7 @@ import java.util.Objects;
 
 
 public class VizualizareProfesori {
-    private static final ObjectRepository<Materie> REPOSITORY = MaterieService.getMaterieRepository();
-    private static final ObjectRepository<User> REPOSITORY1 = UserService.getUserRepository();
+
     @FXML
     private User user;
     private String numeElev;
@@ -79,7 +78,7 @@ public class VizualizareProfesori {
         {
             numeElev= ParinteService.getElev(user.getNume()+" "+user.getPrenume());
         }
-        for (Materie materie : REPOSITORY.find()) {
+        for (Materie materie : MaterieService.getAllMaterii()) {
             if (materie.verificaElev(numeElev)==true) {
                 try {
                     User profesor = UserService.getUserDupaNume(materie.getNumeProfesor());

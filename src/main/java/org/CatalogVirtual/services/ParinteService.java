@@ -14,7 +14,6 @@ import static org.CatalogVirtual.services.FileSystemService.getPathToFile;
 
 public class ParinteService {
     private static ObjectRepository<Parinte> parinteRepository;
-    private static final ObjectRepository<User> REPOSITORY= UserService.getUserRepository();
     private static Nitrite database;
     public static void initDatabase() {
         FileSystemService.initDirectory();
@@ -31,7 +30,7 @@ public class ParinteService {
     }
     private static void VerificaDacaElevulNuExista(String numeElev) throws ElevulNuExista {
         int exista=0;
-        for(User user:REPOSITORY.find()){
+        for(User user:UserService.getAllUsers()){
             if(Objects.equals(user.getNume()+" "+user.getPrenume(),numeElev)&& user.getRole().equals("Elev")){
                 exista=1;
                 break;

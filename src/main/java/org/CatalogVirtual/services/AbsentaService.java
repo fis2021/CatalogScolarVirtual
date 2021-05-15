@@ -15,10 +15,6 @@ import static org.CatalogVirtual.services.FileSystemService.getPathToFile;
 
 public class AbsentaService {
     private static ObjectRepository<Absenta> absentaRepository;
-
-    public static ObjectRepository<Absenta> getAbsentaRepository() {
-        return absentaRepository;
-    }
     private static Nitrite database;
     public static void initDatabase() {
         FileSystemService.initDirectory();
@@ -53,9 +49,8 @@ public class AbsentaService {
 
 
     }
-    private static final ObjectRepository<Materie> REPOSITORY= MaterieService.getMaterieRepository();
     private static void verificaElevulNuAFostAdaugat(String numeElev,String numeMaterie,String numeProfesor)throws ElevulNuAFostAdaugat {
-        for(Materie materie:REPOSITORY.find()){
+        for(Materie materie:MaterieService.getAllMaterii()){
             if(materie.getNumeMaterie().equals(numeMaterie) && materie.getNumeProfesor().equals(numeProfesor)){
                 int i;
                 int exista=0;

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class Note {
     private User user;
-    private static final ObjectRepository<Nota> REPOSITORY = NoteService.getNotaRepository();
+
 
     public void setUser(User user) {
         this.user = user;
@@ -60,7 +60,7 @@ public class Note {
         else {
             numeElev= ParinteService.getElev(user.getNume()+" "+user.getPrenume());
         }
-        for (Nota nota : REPOSITORY.find()) {
+        for (Nota nota : NoteService.getAllNotes()) {
             if (nota.getNumeElev().equals(numeElev)==true&&listOfNote.contains(nota)==false) {
                 try {
                     listOfNote.add(nota);

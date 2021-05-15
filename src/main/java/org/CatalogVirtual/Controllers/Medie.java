@@ -16,7 +16,7 @@ import org.dizitart.no2.objects.ObjectRepository;
 
 public class Medie {
     private User user;
-    private static final ObjectRepository<Nota> REPOSITORY = NoteService.getNotaRepository();
+
 
     public void setUser(User user) {
         this.user = user;
@@ -54,7 +54,7 @@ public class Medie {
         }
         double medieMatematica,medieInformatica,medieFizica,medieGeografie,medieEngleza;
         double medieAnuala;
-        for(Nota nota:REPOSITORY.find()){
+        for(Nota nota:NoteService.getAllNotes()){
             if(nota.getMaterie().equals("Matematica" )&& nota.getNumeElev().equals(numeElev)){
                 notaMatematica=notaMatematica+ nota.getValue();
                 nrNoteMatemetica++;

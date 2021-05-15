@@ -17,7 +17,7 @@ import org.dizitart.no2.objects.ObjectRepository;
 import java.io.IOException;
 
 public class Logare {
-    private final ObjectRepository<User> REPOSITORY = UserService.getUserRepository();
+
     @FXML
     private Text registrationMessage;
     @FXML

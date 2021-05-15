@@ -15,7 +15,7 @@ import org.CatalogVirtual.services.MaterieService;
 import org.dizitart.no2.objects.ObjectRepository;
 
 public class ParintiVizualizareAnunturi {
-    private static final ObjectRepository<Anunt> REPOSITORY = AnuntService.getAnuntRepository();
+
     @FXML
     private Text anunturi;
     @FXML
@@ -28,7 +28,7 @@ public class ParintiVizualizareAnunturi {
 
     public void initializare(){
         String t="";
-        for(Anunt anunt:REPOSITORY.find()){
+        for(Anunt anunt:AnuntService.getAllAnunturi()){
             if(anunt.getNumeParinte().equals(user.getNume()+" "+user.getPrenume())){
                 t=t+anunt.getNumeProfesor()+"-"+MaterieService.getnumeMaterie(anunt.getNumeProfesor())+":";
                 t=t+anunt.getMesaj();
