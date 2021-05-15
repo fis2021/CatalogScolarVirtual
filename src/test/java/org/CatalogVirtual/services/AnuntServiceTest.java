@@ -18,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class AnuntServiceTest {
     @AfterEach
     void tearDown() {
+        UserService.getDatabase().close();
+        MaterieService.getDatabase().close();
         AnuntService.getDatabase().close();
 
     }

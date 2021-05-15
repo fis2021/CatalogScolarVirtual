@@ -11,13 +11,14 @@ public class Materie {
     private String numeMaterie;
     private String[] elevi=new String[1];
 
-    private int contor=0;
+    private int contor;
     //private ArrayList<String> elevi;
 
 
     public Materie(String numeMaterie,String numeProfesor){
         this.numeMaterie=numeMaterie;
         this.numeProfesor=numeProfesor;
+       this.contor=0;
         //elevi=new ArrayList<String>(10);
 
     }

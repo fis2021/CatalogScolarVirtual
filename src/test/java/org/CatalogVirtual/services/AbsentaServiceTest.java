@@ -21,6 +21,9 @@ class AbsentaServiceTest {
     @AfterEach
     void tearDown() throws IOException {
         AbsentaService.getDatabase().close();
+        MaterieService.getDatabase().close();
+        UserService.getDatabase().close();
+
     }
 
     @BeforeEach

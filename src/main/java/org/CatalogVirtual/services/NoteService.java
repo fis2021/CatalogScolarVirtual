@@ -59,9 +59,8 @@ public class NoteService {
 
 
     }
-    private static final ObjectRepository<Materie> REPOSITORY= MaterieService.getMaterieRepository();
     private static void verificaElevulNuAFostAdaugat(String numeElev,String numeMaterie,String numeProfesor)throws  ElevulNuAFostAdaugat{
-        for(Materie materie:REPOSITORY.find()){
+        for(Materie materie:MaterieService.getAllMaterii()){
             if(materie.getNumeMaterie().equals(numeMaterie) && materie.getNumeProfesor().equals(numeProfesor)){
                 int i;
                 int exista=0;
@@ -76,9 +75,6 @@ public class NoteService {
         }
     }
 
-    public static ObjectRepository<Nota> getNotaRepository() {
-        return notaRepository;
-    }
     public static List<Nota> getAllNotes(){
         return notaRepository.find().toList();
     }

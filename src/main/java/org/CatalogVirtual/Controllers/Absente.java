@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 public class Absente {
     private User user;
-    private  final ObjectRepository<Absenta> REPOSITORY = AbsentaService.getAbsentaRepository();
 
     public void setUser(User user) {
         this.user = user;
@@ -55,7 +54,7 @@ public class Absente {
         dataCol.setCellValueFactory(
                 new PropertyValueFactory<Absenta, Data>("data")
         );
-        for (Absenta absenta : REPOSITORY.find()) {
+        for (Absenta absenta :AbsentaService.getAllAbstente()) {
             if (absenta.getNumeElev().equals(numeElev)==true) {
                 try {
                     listOfAbsente.add(absenta);

@@ -19,7 +19,7 @@ class ParinteServiceTest {
     @AfterEach
     void tearDown() {
         ParinteService.getDatabase().close();
-
+        UserService.getDatabase().close();
     }
 
     @BeforeEach

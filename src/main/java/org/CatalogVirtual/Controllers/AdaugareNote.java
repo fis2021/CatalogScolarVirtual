@@ -49,7 +49,6 @@ public class AdaugareNote {
         return setareMessage;
     }
 
-    private static final ObjectRepository<Materie> REPOSITORY= MaterieService.getMaterieRepository();
     public void handleInapoi()throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ProfesorHomePage.fxml"));

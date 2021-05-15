@@ -31,7 +31,6 @@ public class AdaugareElevi {
     @FXML
     private Text mesajAdaugare;
 
-    private final ObjectRepository<Materie> REPOSITORY= MaterieService.getMaterieRepository();
      public void setUser(User user) {
          this.user=user;
      }

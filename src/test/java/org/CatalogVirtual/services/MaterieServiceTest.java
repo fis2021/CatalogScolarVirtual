@@ -17,7 +17,7 @@ class MaterieServiceTest {
     @AfterEach
     void tearDown() {
         MaterieService.getDatabase().close();
-
+        UserService.getDatabase().close();
     }
 
     @BeforeEach

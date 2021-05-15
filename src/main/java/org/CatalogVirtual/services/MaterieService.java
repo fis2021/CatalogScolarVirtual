@@ -40,11 +40,10 @@ public class MaterieService {
         }
 
     }
-    private static final ObjectRepository<User> REPOSITORY= UserService.getUserRepository();
 
     private static void VerificaDacaElevulNuExista(String numeElev) throws ElevulNuExista {
         int exista=0;
-        for(User user:REPOSITORY.find()){
+        for(User user:UserService.getAllUsers()){
             if(Objects.equals(user.getNume()+" "+user.getPrenume(),numeElev)&& user.getRole().equals("Elev")){
                 exista=1;
                 break;
@@ -81,9 +80,6 @@ public class MaterieService {
     }
     public static List<Materie> getAllMaterii(){
         return materieRepository.find().toList();
-    }
-    public static ObjectRepository<Materie> getMaterieRepository(){
-        return materieRepository;
     }
     public static Nitrite getDatabase(){
         return database;

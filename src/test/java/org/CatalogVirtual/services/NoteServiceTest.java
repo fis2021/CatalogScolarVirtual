@@ -15,7 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class NoteServiceTest {
     @AfterEach
     void tearDown() {
+        UserService.getDatabase().close();
+        MaterieService.getDatabase().close();
         NoteService.getDatabase().close();
+
 
     }
 
